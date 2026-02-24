@@ -1,0 +1,82 @@
+.preloader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-background);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+.preloader-overlay.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.preloader-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    /* Arranca invisible, chiquito y rotado */
+    transform: rotate(90deg) scale(0.3);
+    opacity: 0;
+    /* La animación dura 2.5s con una curva elegante */
+    animation: logoIntro 2.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.preloader-text {
+    color: var(--color-primary);
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 6px;
+    margin-top: 1.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    /* El texto aparece 1.5s después de que arranca la foto */
+    animation: textIntro 2s cubic-bezier(0.165, 0.84, 0.44, 1) 1.5s forwards;
+}
+
+/* Keyframes - Magia Minimalista */
+@keyframes logoIntro {
+    0% {
+        opacity: 0;
+        transform: rotate(90deg) scale(0.3);
+    }
+
+    40% {
+        opacity: 1;
+        /* Efecto rebote suave rebasando el 100% de tamaño */
+        transform: rotate(90deg) scale(1.4);
+    }
+
+    100% {
+        opacity: 1;
+        /* Termina en su tamaño real y original establecido o 1.2 para que quede mas grande */
+        transform: rotate(90deg) scale(1.3);
+    }
+}
+
+@keyframes textIntro {
+    0% {
+        opacity: 0;
+        letter-spacing: 15px;
+        transform: translateY(30px) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        letter-spacing: 6px;
+        transform: translateY(0) scale(1);
+    }
+}
