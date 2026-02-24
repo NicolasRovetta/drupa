@@ -27,7 +27,7 @@ const Header = ({ onNavigate }) => {
                 <div className="header-container">
                     <div className="logo" onClick={() => onNavigate('home')}>
                         <div className="logo-wrapper">
-                            <img src="/logo.png" alt="Drupa Logo" className="logo-img" />
+                            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Drupa Logo" className="logo-img" />
                             <h1 className="logo-text">Drupa</h1>
                         </div>
                     </div>
