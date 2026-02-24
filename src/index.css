@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+  --color-primary: #3A2A20;
+  /* Marrón oscuro rico, café expreso */
+  --color-secondary: #6B503B;
+  /* Marrón nuez medio */
+  --color-accent: #D4AF37;
+  /* Dorado orgánico apagado */
+  --color-background: #FDFBF7;
+  /* Blanco roto / Crema ultra claro */
+  --color-surface: #FFFFFF;
+  --color-text-dark: #2C241B;
+  --color-text-gray: #7A7065;
+  --color-border: #E8E5DF;
+  --color-success: #4E7A53;
+  --color-danger: #D9534F;
+
+  --shadow-sm: 0 4px 6px rgba(58, 42, 32, 0.04);
+  --shadow-md: 0 10px 25px rgba(58, 42, 32, 0.08);
+  --shadow-lg: 0 20px 40px rgba(58, 42, 32, 0.12);
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  --font-main: 'Outfit', sans-serif;
+}
+
+[data-theme='dark'] {
+  --color-primary: #E8E5DF;
+  /* Texto muy claro y detalles principales */
+  --color-secondary: #C3A68F;
+  /* Marrón nuez claro */
+  --color-accent: #D4AF37;
+  /* El dorado se mantiene */
+  --color-background: #1A1412;
+  /* Fondo casi negro/espresso muy profundo */
+  --color-surface: #261D18;
+  /* Superficies de tarjetas un poco más claras que background */
+  --color-text-dark: #FDFBF7;
+  /* Literalmente texto claro ahora */
+  --color-text-gray: #A3968A;
+  --color-border: #3A2A20;
+
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-background);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}

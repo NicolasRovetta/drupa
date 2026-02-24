@@ -1,0 +1,49 @@
+.theme-toggle-btn {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: var(--color-primary);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--color-background);
+    transform: scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+.icon-moon,
+.icon-sun {
+    transition: all 0.3s ease;
+}
+
+.icon-sun {
+    color: var(--color-accent);
+    /* Sol en color dorado */
+}
+
+/* Responsive adjustment para el botón fijo en móviles */
+@media (max-width: 768px) {
+    .theme-toggle-btn {
+        width: 35px;
+        height: 35px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .theme-toggle-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+}

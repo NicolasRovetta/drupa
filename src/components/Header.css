@@ -1,0 +1,266 @@
+.header-placeholder {
+    height: 292px;
+    /* Altura original del navbar para empujar el contenido inicial */
+    width: 100%;
+}
+
+.header {
+    background-color: var(--color-surface);
+    color: var(--color-text-dark);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.header.scrolled {
+    background-color: rgba(253, 251, 247, 0.85);
+    /* Crema semi-transparente */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(232, 229, 223, 0.5);
+    box-shadow: var(--shadow-md);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+/* Reducimos el padding cuando hay scroll */
+.header.scrolled .header-container {
+    padding: 0.5rem 2rem;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.logo-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 260px;
+    /* Tamaño total del contenedor solicitado */
+    width: 260px;
+}
+
+.header.scrolled .logo-wrapper {
+    height: 60px;
+    /* Navbar chico al hacer scroll */
+    width: auto;
+    flex-direction: row;
+    /* Alineamos imagen y texto horizontalmente */
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.logo-img {
+    width: 120px;
+    /* La imagen interior más chica para dar aire */
+    height: 120px;
+    object-fit: contain;
+    transform: rotate(90deg);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin-bottom: -10px;
+    /* Para acercar la nuez al texto sutilmente */
+}
+
+.logo-text {
+    color: var(--color-primary);
+    /* Pasamos a usar el marrón primario en vez del blanco */
+    margin: 0;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 10;
+}
+
+/* Escalar la fuente e imagen al hacer scroll */
+.header.scrolled .logo-img {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 0;
+}
+
+.header.scrolled .logo-text {
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-link {
+    color: var(--color-text-dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.cart-widget {
+    position: relative;
+    margin-left: 0.5rem;
+}
+
+.cart-button {
+    color: var(--color-text-dark);
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.cart-button:hover {
+    color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+.cart-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background-color: var(--color-accent);
+    color: var(--color-surface);
+    font-size: 0.75rem;
+    font-weight: bold;
+    height: 22px;
+    min-width: 22px;
+    padding: 0 6px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 992px) {
+    .header-container {
+        padding: 1rem 1.5rem;
+    }
+
+    .logo-wrapper {
+        height: 180px;
+        width: 180px;
+    }
+
+    .logo-img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .logo-text {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-placeholder {
+        height: 160px;
+        /* Reducimos el alto extra en movil */
+    }
+
+    .header-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        padding: 0.8rem 1rem;
+    }
+
+    .header.scrolled .header-container {
+        justify-content: space-between;
+    }
+
+    .logo-wrapper {
+        height: 100px;
+        width: 100px;
+    }
+
+    .header.scrolled .logo-wrapper {
+        height: 50px;
+        width: auto;
+    }
+
+    .logo-img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0;
+    }
+
+    .header.scrolled .logo-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo-text {
+        font-size: 1.4rem;
+        display: none;
+        /* Ocultamos texto en movil para no colisionar con carrito */
+    }
+
+    .nav-menu {
+        width: 100%;
+        order: 3;
+        /* Pondremos las urls abajo */
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+        justify-content: center;
+    }
+
+    .header.scrolled .nav-menu {
+        display: none;
+        /* Ocultar el menu al hacer scroll, o se come mucha altura. Alternativa para desktop app-like */
+    }
+
+    .header-actions {
+        order: 2;
+        /* El carrito arriba a la derecha */
+    }
+}

@@ -1,0 +1,61 @@
+export const products = [
+  // Frutos Secos
+  { id: 1, name: "Nueces Mariposa", presentation: "100g", price: 1200, category: "Frutos Secos", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Nueces%20Mariposa" },
+  { id: 2, name: "Almendras Non Pareil", presentation: "100g", price: 1500, category: "Frutos Secos", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Almendras%20Non%20Pareil" },
+  { id: 3, name: "Castañas de Cajú", presentation: "100g", price: 1800, category: "Frutos Secos", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Casta%C3%B1as%20de%20Caj%C3%BA" },
+  { id: 4, name: "Avellanas Peladas", presentation: "100g", price: 1900, category: "Frutos Secos", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Avellanas%20Peladas" },
+  { id: 5, name: "Pistachos Tostados", presentation: "100g", price: 2200, category: "Frutos Secos", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Pistachos%20Tostados" },
+  { id: 6, name: "Maní Tostado sin Sal", presentation: "500g", price: 800, category: "Frutos Secos", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Man%C3%AD%20Tostado%20sin%20Sal" },
+  { id: 7, name: "Maní Tostado con Sal", presentation: "500g", price: 850, category: "Frutos Secos", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Man%C3%AD%20Tostado%20con%20Sal" },
+  { id: 8, name: "Mix Frutos Secos Clásico", presentation: "250g", price: 3000, category: "Frutos Secos", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Mix%20Frutos%20Secos%20Cl%C3%A1sico" },
+  { id: 9, name: "Mix Frutos Secos Premium", presentation: "250g", price: 4500, category: "Frutos Secos", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Mix%20Frutos%20Secos%20Premium" },
+  { id: 10, name: "Nueces Pecan", presentation: "100g", price: 1600, category: "Frutos Secos", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Nueces%20Pecan" },
+
+  // Semillas
+  { id: 11, name: "Semillas de Chía", presentation: "250g", price: 900, category: "Semillas", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Semillas%20de%20Ch%C3%ADa" },
+  { id: 12, name: "Semillas de Lino", presentation: "250g", price: 600, category: "Semillas", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Semillas%20de%20Lino" },
+  { id: 13, name: "Semillas de Girasol Peladas", presentation: "250g", price: 750, category: "Semillas", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Semillas%20de%20Girasol%20Peladas" },
+  { id: 14, name: "Semillas de Zapallo Peladas", presentation: "250g", price: 1800, category: "Semillas", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Semillas%20de%20Zapallo%20Peladas" },
+  { id: 15, name: "Semillas de Sésamo Integral", presentation: "250g", price: 800, category: "Semillas", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Semillas%20de%20S%C3%A9samo%20Integral" },
+  { id: 16, name: "Semillas de Sésamo Blanco", presentation: "250g", price: 850, category: "Semillas", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Semillas%20de%20S%C3%A9samo%20Blanco" },
+  { id: 17, name: "Semillas de Sésamo Negro", presentation: "250g", price: 950, category: "Semillas", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Semillas%20de%20S%C3%A9samo%20Negro" },
+  { id: 18, name: "Mix de Semillas", presentation: "500g", price: 1600, category: "Semillas", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Mix%20de%20Semillas" },
+  { id: 19, name: "Quinoa Blanca", presentation: "500g", price: 2100, category: "Semillas", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Quinoa%20Blanca" },
+  { id: 20, name: "Mijo Pelado", presentation: "500g", price: 850, category: "Semillas", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Mijo%20Pelado" },
+
+  // Cereales y Granolas
+  { id: 21, name: "Avena Tradicional", presentation: "500g", price: 700, category: "Cereales", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Avena%20Tradicional" },
+  { id: 22, name: "Avena Instantánea", presentation: "500g", price: 750, category: "Cereales", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Avena%20Instant%C3%A1nea" },
+  { id: 23, name: "Granola Clásica", presentation: "500g", price: 2200, category: "Cereales", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Granola%20Cl%C3%A1sica" },
+  { id: 24, name: "Granola Energética", presentation: "500g", price: 2800, category: "Cereales", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Granola%20Energ%C3%A9tica" },
+  { id: 25, name: "Copos de Maíz sin Azúcar", presentation: "500g", price: 1100, category: "Cereales", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Copos%20de%20Ma%C3%ADz%20sin%20Az%C3%BAcar" },
+  { id: 26, name: "Copos de Maíz con Miel", presentation: "500g", price: 1300, category: "Cereales", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Copos%20de%20Ma%C3%ADz%20con%20Miel" },
+  { id: 27, name: "Almohaditas de Avena", presentation: "250g", price: 1500, category: "Cereales", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Almohaditas%20de%20Avena" },
+  { id: 28, name: "Almohaditas de Chocolate", presentation: "250g", price: 1600, category: "Cereales", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Almohaditas%20de%20Chocolate" },
+  { id: 29, name: "Bolas de Cereal Chocolate", presentation: "250g", price: 1400, category: "Cereales", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Bolas%20de%20Cereal%20Chocolate" },
+  { id: 30, name: "Trigo Sarraceno", presentation: "500g", price: 1900, category: "Cereales", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Trigo%20Sarraceno" },
+
+  // Deshidratados
+  { id: 31, name: "Pasas de Uva Sultaninas", presentation: "250g", price: 800, category: "Deshidratados", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Pasas%20de%20Uva%20Sultaninas" },
+  { id: 32, name: "Pasas de Uva Rubias", presentation: "250g", price: 950, category: "Deshidratados", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Pasas%20de%20Uva%20Rubias" },
+  { id: 33, name: "Ciruelas Bombón sin Carozo", presentation: "250g", price: 1400, category: "Deshidratados", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Ciruelas%20Bomb%C3%B3n%20sin%20Carozo" },
+  { id: 34, name: "Medallones de Durazno", presentation: "250g", price: 1800, category: "Deshidratados", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Medallones%20de%20Durazno" },
+  { id: 35, name: "Coco Rallado", presentation: "250g", price: 1500, category: "Deshidratados", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Coco%20Rallado" },
+  { id: 36, name: "Coco en Escamas", presentation: "200g", price: 2100, category: "Deshidratados", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Coco%20en%20Escamas" },
+  { id: 37, name: "Tomates Secos", presentation: "100g", price: 1100, category: "Deshidratados", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Tomates%20Secos" },
+  { id: 38, name: "Chips de Banana", presentation: "200g", price: 1200, category: "Deshidratados", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Chips%20de%20Banana" },
+  { id: 39, name: "Higos Secos", presentation: "250g", price: 2300, category: "Deshidratados", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Higos%20Secos" },
+  { id: 40, name: "Dátiles sin Carozo", presentation: "250g", price: 2600, category: "Deshidratados", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=D%C3%A1tiles%20sin%20Carozo" },
+
+  // Legumbres y Harinas
+  { id: 41, name: "Lentejas", presentation: "500g", price: 900, category: "Legumbres", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Lentejas" },
+  { id: 42, name: "Lentejones", presentation: "500g", price: 1100, category: "Legumbres", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Lentejones" },
+  { id: 43, name: "Porotos Negros", presentation: "500g", price: 1000, category: "Legumbres", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Porotos%20Negros" },
+  { id: 44, name: "Porotos Mung", presentation: "500g", price: 1300, category: "Legumbres", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Porotos%20Mung" },
+  { id: 45, name: "Garbanzos", presentation: "500g", price: 850, category: "Legumbres", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Garbanzos" },
+  { id: 46, name: "Harina de Almendras", presentation: "250g", price: 3800, category: "Harinas", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Harina%20de%20Almendras" },
+  { id: 47, name: "Harina de Avena", presentation: "500g", price: 900, category: "Harinas", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Harina%20de%20Avena" },
+  { id: 48, name: "Harina de Garbanzos", presentation: "500g", price: 1100, category: "Harinas", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Harina%20de%20Garbanzos" },
+  { id: 49, name: "Harina de Arroz Integral", presentation: "500g", price: 1200, category: "Harinas", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Harina%20de%20Arroz%20Integral" },
+  { id: 50, name: "Sal del Himalaya Fina", presentation: "500g", price: 1500, category: "Condimentos", imageUrl: "https://placehold.co/400x400/FDFBF7/3A2A20?font=montserrat&text=Sal%20del%20Himalaya%20Fina" },
+];
