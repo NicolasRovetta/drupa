@@ -36,10 +36,13 @@
 /* Responsive adjustment para el botón fijo en móviles */
 @media (max-width: 768px) {
     .theme-toggle-btn {
+        position: relative;
+        top: auto;
+        right: auto;
         width: 35px;
         height: 35px;
-        top: 15px;
-        right: 15px;
+        margin-right: 15px;
+        /* Separación con el carrito */
     }
 
     .theme-toggle-btn svg {

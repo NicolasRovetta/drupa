@@ -1,6 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
-const Home = ({ onNavigate }) => {
+const Home = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="home-container">
             {/* Hero Section */}
@@ -10,10 +13,11 @@ const Home = ({ onNavigate }) => {
                     <p className="hero-subtitle">
                         Tu dietética de confianza. Encontrá la mejor selección de frutos secos, semillas, cereales y mucho más.
                     </p>
-                    <button className="cta-button" onClick={() => onNavigate('products')}>
+                    <button className="cta-button" onClick={() => navigate('/products')}>
                         Ver Productos
                     </button>
                 </div>
+
             </section>
 
             {/* Info Section */}

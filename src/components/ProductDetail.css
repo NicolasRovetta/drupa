@@ -1,0 +1,140 @@
+.pdp-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    min-height: 50vh;
+}
+
+.pdp-loading,
+.pdp-error {
+    text-align: center;
+    padding: 5rem 2rem;
+    font-size: 1.2rem;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    padding: 0;
+    font-family: inherit;
+    transition: color 0.2s ease;
+}
+
+.back-btn:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+.pdp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.pdp-image-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-background);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.pdp-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pdp-no-image {
+    color: var(--color-text-secondary);
+}
+
+.pdp-info-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.pdp-category {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.pdp-title {
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--color-text);
+}
+
+.pdp-presentation {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 1rem 0;
+}
+
+.pdp-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 2rem 0;
+}
+
+.pdp-description {
+    margin-bottom: 2rem;
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.5rem;
+}
+
+.pdp-description h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+}
+
+.pdp-description p {
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.pdp-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.pdp-quantity {
+    margin: 0;
+    height: 100%;
+}
+
+.pdp-add-btn {
+    flex: 1;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .pdp-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .pdp-image-section {
+        min-height: 300px;
+    }
+}

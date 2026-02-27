@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
 import ProductList from './components/ProductList';
+import ProductDetail from './components/ProductDetail';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Preloader from './components/Preloader';
+import { Toaster } from 'react-hot-toast';
 import { CartProvider } from './context/CartContext';
 import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
-  const [currentView, setCurrentView] = useState('home');
   const [isLoading, setIsLoading] = useState(true);
   const [showPreloader, setShowPreloader] = useState(true);
 
@@ -30,26 +33,28 @@ function App() {
     };
   }, []);
 
-  const handleNavigate = (view) => {
-    setCurrentView(view);
-    window.scrollTo(0, 0);
-  };
-
   return (
     <ThemeProvider>
+      <Toaster position="bottom-right" />
       {showPreloader && <Preloader isFadingOut={!isLoading} />}
       <CartProvider>
-        <div className="app-container">
-          <Header onNavigate={handleNavigate} />
+        <BrowserRouter>
+          <div className="app-container">
+            <Header />
 
-          <main>
-            {currentView === 'home' && <Home onNavigate={handleNavigate} />}
-            {currentView === 'products' && <ProductList />}
-            {currentView === 'cart' && <Cart onNavigate={handleNavigate} />}
-          </main>
+            <main>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/products" element={<ProductList />} />
+                <Route path="/producto/:id" element={<ProductDetail />} />
+                <Route path="/cart" element={<Cart />} />
+              </Routes>
+            </main>
 
-          <Footer />
-        </div>
+            <Footer />
+            <FloatingWhatsApp />
+          </div>
+        </BrowserRouter>
       </CartProvider>
     </ThemeProvider>
   );

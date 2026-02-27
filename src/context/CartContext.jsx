@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 export const CartContext = createContext();
 
@@ -19,21 +20,33 @@ export const CartProvider = ({ children }) => {
     }, [cart]);
 
     const addToCart = (product, quantity = 1) => {
+        const productId = product._id || product.id;
+        const isExisting = cart.find((item) => (item._id || item.id) === productId);
+
+        if (isExisting) {
+            toast.success(`Se actualizaron las cantidades de ${product.name}`);
+        } else {
+            toast.success(`${product.name} agregado al carrito`);
+        }
+
         setCart((prevCart) => {
-            const existingItem = prevCart.find((item) => item.id === product.id);
+            const existingItem = prevCart.find((item) => (item._id || item.id) === productId);
+
             if (existingItem) {
                 return prevCart.map((item) =>
-                    item.id === product.id
+                    (item._id || item.id) === productId
                         ? { ...item, quantity: item.quantity + quantity }
                         : item
                 );
             }
-            return [...prevCart, { ...product, quantity }];
+
+            return [...prevCart, { ...product, id: productId, quantity }];
         });
     };
 
     const removeFromCart = (productId) => {
-        setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+        setCart((prevCart) => prevCart.filter((item) => (item._id || item.id) !== productId));
+        toast.error('Producto eliminado del carrito');
     };
 
     const updateQuantity = (productId, quantity) => {
@@ -43,7 +56,7 @@ export const CartProvider = ({ children }) => {
         }
         setCart((prevCart) =>
             prevCart.map((item) =>
-                item.id === productId ? { ...item, quantity } : item
+                (item._id || item.id) === productId ? { ...item, quantity } : item
             )
         );
     };

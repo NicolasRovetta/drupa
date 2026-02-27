@@ -1,11 +1,14 @@
 import { useContext, useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import ThemeToggle from './ThemeToggle';
 import './Header.css';
 
-const Header = ({ onNavigate }) => {
+const Header = () => {
     const { cartItemCount } = useContext(CartContext);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -20,38 +23,59 @@ const Header = ({ onNavigate }) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (searchTerm.trim()) {
+            navigate(`/products?search=${encodeURIComponent(searchTerm)}`);
+            setSearchTerm('');
+        }
+    };
+
     return (
         <>
             <div className="header-placeholder"></div>
             <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
                 <div className="header-container">
-                    <div className="logo" onClick={() => onNavigate('home')}>
+                    <Link to="/" className="logo" style={{ textDecoration: 'none' }}>
                         <div className="logo-wrapper">
                             <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Drupa Logo" className="logo-img" />
                             <h1 className="logo-text">Drupa</h1>
                         </div>
-                    </div>
+                    </Link>
 
                     <nav className="nav-menu">
                         <ul className="nav-links">
                             <li>
-                                <button onClick={() => onNavigate('home')} className="nav-link">
+                                <Link to="/" className="nav-link">
                                     Inicio
-                                </button>
+                                </Link>
                             </li>
                             <li>
-                                <button onClick={() => onNavigate('products')} className="nav-link">
+                                <Link to="/products" className="nav-link">
                                     Productos
-                                </button>
+                                </Link>
                             </li>
                         </ul>
                     </nav>
 
                     <div className="header-actions">
+                        <form className="search-form" onSubmit={handleSearch}>
+                            <input
+                                type="text"
+                                placeholder="Buscar..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                className="search-input"
+                            />
+                            <button type="submit" className="search-btn" aria-label="Buscar">
+                                🔍
+                            </button>
+                        </form>
+
                         <ThemeToggle />
 
                         <div className="cart-widget">
-                            <button onClick={() => onNavigate('cart')} className="cart-button">
+                            <Link to="/cart" className="cart-button" style={{ textDecoration: 'none' }}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24"
@@ -67,7 +91,7 @@ const Header = ({ onNavigate }) => {
                                     <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                                 </svg>
                                 {cartItemCount > 0 && <span className="cart-badge">{cartItemCount}</span>}
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
