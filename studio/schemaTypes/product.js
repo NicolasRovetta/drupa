@@ -33,6 +33,42 @@ export default {
             title: 'Precio',
             type: 'number',
             validation: (Rule) => Rule.required().positive(),
+            description: 'Precio base por defecto (usado si el producto no tiene variantes)',
+        },
+        {
+            name: 'variants',
+            title: 'Variantes (Precios por Peso/Tamaño)',
+            type: 'array',
+            description: 'Agrega las opciones de compra (ej: 250g, 500g, 1kg) y sus respectivos precios. Si agregas variantes, el botón de compra pedirá elegir una.',
+            of: [
+                {
+                    type: 'object',
+                    fields: [
+                        {
+                            name: 'name',
+                            title: 'Nombre de la Variante (Ej: 250g)',
+                            type: 'string',
+                            validation: (Rule) => Rule.required()
+                        },
+                        {
+                            name: 'price',
+                            title: 'Precio de esta Variante',
+                            type: 'number',
+                            validation: (Rule) => Rule.required().positive()
+                        }
+                    ],
+                    preview: {
+                        select: {
+                            title: 'name',
+                            subtitle: 'price'
+                        },
+                        prepare(selection) {
+                            const { title, subtitle } = selection;
+                            return { title: title, subtitle: `$${subtitle}` }
+                        }
+                    }
+                }
+            ]
         },
         {
             name: 'description',

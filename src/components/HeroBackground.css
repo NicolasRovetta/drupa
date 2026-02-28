@@ -1,0 +1,33 @@
+.hero-background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    /* Detrás del contenido de texto .hero-content que tiene z-index: 2 */
+    pointer-events: none;
+    /* Que no intercepte clics de los botones */
+}
+
+.hero-floating-item {
+    position: absolute;
+    bottom: -150px;
+    /* Que empiece un poco más abajo de la sección visible */
+    user-select: none;
+    animation-name: floatUpHero;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes floatUpHero {
+    0% {
+        transform: translateY(150px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-150vh) rotate(360deg);
+    }
+}

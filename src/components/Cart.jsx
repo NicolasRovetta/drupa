@@ -12,7 +12,7 @@ const STEPS = {
 };
 
 const SHIPPING_OPTIONS = [
-    { id: 'pickup', title: 'Retiro en Local', description: 'Córdoba Capital, Centro', price: 0 },
+    { id: 'pickup', title: 'Retiro en Local', description: 'Torres , Luján(Bs.As)', price: 0 },
     { id: 'standard', title: 'Envío a Domicilio (Estándar)', description: '3 a 5 días hábiles', price: 2500 },
     { id: 'express', title: 'Envío Express', description: 'En el día (Solo Luján(Bs.As))', price: 4500 }
 ];
@@ -53,7 +53,8 @@ const Cart = () => {
         let message = `¡Hola Drupa! Quiero realizar el siguiente pedido:\n\n`;
         message += `*PRODUCTOS:*\n`;
         cart.forEach(item => {
-            message += `- ${item.quantity}x ${item.name} ($${(item.price * item.quantity).toLocaleString('es-AR')})\n`;
+            const variantText = item.selectedVariant ? ` (${item.selectedVariant})` : '';
+            message += `- ${item.quantity}x ${item.name}${variantText} ($${(item.price * item.quantity).toLocaleString('es-AR')})\n`;
         });
 
         const currentShipping = SHIPPING_OPTIONS.find(opt => opt.id === shippingDetails.methodId);

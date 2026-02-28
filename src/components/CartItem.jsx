@@ -11,7 +11,9 @@ const CartItem = ({ item }) => {
 
             <div className="cart-item-details">
                 <h4 className="cart-item-name">{item.name}</h4>
-                <p className="cart-item-presentation">{item.presentation}</p>
+                <p className="cart-item-presentation">
+                    {item.selectedVariant ? `Peso: ${item.selectedVariant}` : (item.presentation || '')}
+                </p>
                 <p className="cart-item-price">${item.price.toLocaleString('es-AR')}</p>
             </div>
 
@@ -19,14 +21,14 @@ const CartItem = ({ item }) => {
                 <div className="cart-quantity-controls">
                     <button
                         className="cart-qty-btn"
-                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                        onClick={() => updateQuantity(item.cartItemId || item.id, item.quantity - 1)}
                     >
                         -
                     </button>
                     <span className="cart-qty-val">{item.quantity}</span>
                     <button
                         className="cart-qty-btn"
-                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                        onClick={() => updateQuantity(item.cartItemId || item.id, item.quantity + 1)}
                     >
                         +
                     </button>
@@ -38,7 +40,7 @@ const CartItem = ({ item }) => {
 
                 <button
                     className="cart-remove-btn"
-                    onClick={() => removeFromCart(item.id)}
+                    onClick={() => removeFromCart(item.cartItemId || item.id)}
                     title="Eliminar producto"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">

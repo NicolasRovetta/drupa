@@ -19,9 +19,18 @@ export const CartProvider = ({ children }) => {
         localStorage.setItem('drupa-cart', JSON.stringify(cart));
     }, [cart]);
 
+    // Generador de ID para el carrito que mezcla producto y variante
+    const getCartItemId = (product) => {
+        const baseId = product._id || product.id;
+        if (product.selectedVariant) {
+            return `${baseId}-${product.selectedVariant}`;
+        }
+        return baseId;
+    };
+
     const addToCart = (product, quantity = 1) => {
-        const productId = product._id || product.id;
-        const isExisting = cart.find((item) => (item._id || item.id) === productId);
+        const cartItemId = getCartItemId(product);
+        const isExisting = cart.find((item) => (item.cartItemId || item.id) === cartItemId);
 
         if (isExisting) {
             toast.success(`Se actualizaron las cantidades de ${product.name}`);
@@ -30,33 +39,34 @@ export const CartProvider = ({ children }) => {
         }
 
         setCart((prevCart) => {
-            const existingItem = prevCart.find((item) => (item._id || item.id) === productId);
+            const existingItem = prevCart.find((item) => (item.cartItemId || item.id) === cartItemId);
 
             if (existingItem) {
                 return prevCart.map((item) =>
-                    (item._id || item.id) === productId
+                    (item.cartItemId || item.id) === cartItemId
                         ? { ...item, quantity: item.quantity + quantity }
                         : item
                 );
             }
 
-            return [...prevCart, { ...product, id: productId, quantity }];
+            // Guardamos con un ID único de carrito para poder borrar esa variante sola
+            return [...prevCart, { ...product, id: product._id || product.id, cartItemId, quantity }];
         });
     };
 
-    const removeFromCart = (productId) => {
-        setCart((prevCart) => prevCart.filter((item) => (item._id || item.id) !== productId));
+    const removeFromCart = (cartItemId) => {
+        setCart((prevCart) => prevCart.filter((item) => (item.cartItemId || item.id) !== cartItemId));
         toast.error('Producto eliminado del carrito');
     };
 
-    const updateQuantity = (productId, quantity) => {
+    const updateQuantity = (cartItemId, quantity) => {
         if (quantity <= 0) {
-            removeFromCart(productId);
+            removeFromCart(cartItemId);
             return;
         }
         setCart((prevCart) =>
             prevCart.map((item) =>
-                (item._id || item.id) === productId ? { ...item, quantity } : item
+                (item.cartItemId || item.id) === cartItemId ? { ...item, quantity } : item
             )
         );
     };

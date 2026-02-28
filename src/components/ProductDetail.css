@@ -105,9 +105,48 @@
 }
 
 .pdp-description p {
+    color: var(--color-text-gray);
     line-height: 1.6;
-    color: var(--color-text-secondary);
-    margin: 0;
+}
+
+/* Variantes */
+.pdp-variants {
+    margin-bottom: 2rem;
+}
+
+.variants-title {
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+    margin-bottom: 0.8rem;
+}
+
+.variants-options {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.variant-btn {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: transparent;
+    color: var(--color-text-dark);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    /* Added for usability */
+}
+
+.variant-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.variant-btn.selected {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    border-color: var(--color-primary);
 }
 
 .pdp-actions {

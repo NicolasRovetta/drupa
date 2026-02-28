@@ -38,7 +38,7 @@ const Header = () => {
                 <div className="header-container">
                     <Link to="/" className="logo" style={{ textDecoration: 'none' }}>
                         <div className="logo-wrapper">
-                            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Drupa Logo" className="logo-img" />
+                            <img src={`${import.meta.env.BASE_URL}logo-nuez.jpg`} alt="Drupa Logo" className="logo-img" />
                             <h1 className="logo-text">Drupa</h1>
                         </div>
                     </Link>
