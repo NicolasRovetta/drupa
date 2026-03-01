@@ -113,10 +113,11 @@ const Cart = () => {
     if (cart.length === 0 && step !== STEPS.CONFIRMATION) {
         return (
             <div className="cart-empty-container">
+                <div className="cart-empty-icon">🛒</div>
                 <h2>Tu carrito está vacío</h2>
-                <p>Parece que aún no has agregado productos a tu carrito.</p>
+                <p>Parece que aún no has agregado productos a tu carrito. ¡Descubrí todo lo sano que tenemos para vos!</p>
                 <button className="back-to-shop-btn" onClick={() => navigate('/products')}>
-                    Ir a la tienda
+                    Explorar Productos
                 </button>
             </div>
         );

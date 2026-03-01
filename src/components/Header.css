@@ -20,13 +20,13 @@
 }
 
 .header.scrolled {
-    background-color: rgba(20, 20, 20, 0.85);
+    background-color: rgba(20, 20, 20, 0.75);
     background-blend-mode: multiply;
     /* Fondo oscuro semi-transparente */
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 [data-theme='dark'] .header.scrolled {
@@ -193,18 +193,21 @@
 .search-form {
     display: flex;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 20px;
-    padding: 0.2rem 0.8rem;
-    margin-right: 1rem;
-    transition: width 0.3s ease, border-color 0.3s ease;
+    padding: 0.3rem 1rem;
+    margin-right: 1.5rem;
+    transition: all 0.4s ease;
     width: 250px;
+    backdrop-filter: blur(5px);
 }
 
 .search-form:focus-within {
     border-color: #e3bc83;
-    box-shadow: 0 0 0 2px rgba(227, 188, 131, 0.2);
+    background-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 15px rgba(227, 188, 131, 0.3);
+    width: 280px;
 }
 
 .search-input {

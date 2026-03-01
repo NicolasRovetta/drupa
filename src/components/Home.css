@@ -54,21 +54,39 @@
 .cta-button {
     background-color: var(--color-accent);
     color: var(--color-surface);
-    padding: 1.2rem 3rem;
-    font-size: 1.1rem;
+    padding: 1.2rem 3.5rem;
+    font-size: 1.15rem;
     font-weight: 700;
     border-radius: 50px;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: linear-gradient(135deg, var(--color-accent) 0%, #d4af37 100%);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.6s ease;
 }
 
 .cta-button:hover {
-    background-color: var(--color-surface);
-    color: var(--color-accent);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(212, 175, 55, 0.4);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.6);
+}
+
+.cta-button:hover::before {
+    left: 100%;
 }
 
 /* Info Section */
@@ -87,18 +105,41 @@
 
 .info-card {
     text-align: center;
-    padding: 3rem 2rem;
+    padding: 3.5rem 2.5rem;
     border-radius: var(--radius-lg);
-    background-color: var(--color-surface);
-    transition: all 0.4s ease;
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-sm);
+    /* Glassmorphism Effect */
+    background: rgba(var(--color-surface-rgb), 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(var(--color-border-rgb), 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: -1;
+    transition: opacity 0.5s ease;
+    opacity: 0;
 }
 
 .info-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--color-accent);
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(var(--color-accent-rgb), 0.5);
+}
+
+.info-card:hover::before {
+    opacity: 1;
 }
 
 .info-icon {

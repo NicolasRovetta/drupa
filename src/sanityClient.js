@@ -11,4 +11,4 @@ export const client = createClient({
 const builder = imageUrlBuilder(client);
 
 // Función helper para generar las URLs de las imágenes de Sanity
-export const urlFor = (source) => builder.image(source);
+export const urlFor = (source) => builder.image(source).auto('format').fit('max');

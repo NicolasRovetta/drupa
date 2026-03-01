@@ -1,0 +1,71 @@
+.skeleton-loader {
+    animation: shimmer 1.5s infinite linear;
+    background: linear-gradient(to right, var(--color-background) 4%, var(--color-surface) 25%, var(--color-background) 36%);
+    background-size: 1000px 100%;
+}
+
+[data-theme='dark'] .skeleton-loader {
+    background: linear-gradient(to right, var(--color-surface) 4%, var(--color-border) 25%, var(--color-surface) 36%);
+    background-size: 1000px 100%;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.skeleton-loader.product-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    /* override animation base for the container to apply it to children instead */
+    animation: none;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+    border: 1px solid var(--color-border);
+}
+
+.skeleton-loader.product-card>* {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+}
+
+[data-theme='dark'] .skeleton-loader.product-card>* {
+    background: linear-gradient(90deg, var(--color-background-offset) 25%, var(--color-border) 50%, var(--color-background-offset) 75%);
+    background-size: 200% 100%;
+}
+
+.skeleton-image {
+    height: 220px;
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+}
+
+.skeleton-text {
+    height: 16px;
+    margin: 10px 15px;
+    border-radius: 4px;
+}
+
+.skeleton-title {
+    width: 70%;
+    height: 20px;
+    margin-top: 15px;
+}
+
+.skeleton-subtitle {
+    width: 40%;
+}
+
+.skeleton-price {
+    width: 30%;
+    height: 20px;
+    margin-bottom: 20px;
+}

@@ -9,9 +9,12 @@ import Cart from './components/Cart';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Preloader from './components/Preloader';
+import NotFound from './components/NotFound';
 import { Toaster } from 'react-hot-toast';
 import { CartProvider } from './context/CartContext';
 import { ThemeProvider } from './context/ThemeContext';
+
+import TopBar from './components/TopBar';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,21 +28,27 @@ function App() {
   };
 
   useEffect(() => {
-    // Inicia el desvanecimiento de la pantalla negra a los ~4.2 segundos
-    const fadeTimer = setTimeout(() => {
+    const handleDataLoaded = () => {
       setIsLoading(false);
-    }, 4200);
+      setTimeout(() => setShowPreloader(false), 800); // 800ms fade out duration
+    };
 
-    // Remueve por completo el preloader del DOM a los 5 segundos justos
-    const removeTimer = setTimeout(() => {
-      setShowPreloader(false);
+    window.addEventListener('sanityDataLoaded', handleDataLoaded);
+
+    // Fallback just in case
+    const fallbackTimer = setTimeout(() => {
+      handleDataLoaded();
     }, 5000);
 
     return () => {
-      clearTimeout(fadeTimer);
-      clearTimeout(removeTimer);
+      window.removeEventListener('sanityDataLoaded', handleDataLoaded);
+      clearTimeout(fallbackTimer);
     };
   }, []);
+
+  // Update App to add TopBar and listen for load generic event if on other pages.
+  // Actually the event is sanityDataLoaded, but what if they enter via /products?
+  // Let's add the dispatch to ProductList as well just in case.
 
   return (
     <HelmetProvider>
@@ -65,6 +74,7 @@ function App() {
         <CartProvider>
           <Router>
             <div className="app-container">
+              <TopBar />
               <Header toggleTheme={toggleTheme} theme={theme} /> {/* Passed toggleTheme and theme */}
 
               <main>
@@ -73,6 +83,7 @@ function App() {
                   <Route path="/products" element={<ProductList />} />
                   <Route path="/producto/:id" element={<ProductDetail />} />
                   <Route path="/cart" element={<Cart />} />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
 

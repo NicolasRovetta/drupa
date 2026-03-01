@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { client } from '../sanityClient';
 import ProductCard from './ProductCard';
+import SkeletonLoader from './SkeletonLoader';
+import { motion } from 'framer-motion';
 import './ProductList.css';
 
 const ProductList = () => {
@@ -29,6 +31,12 @@ const ProductList = () => {
 
         fetchProducts();
     }, []);
+
+    useEffect(() => {
+        if (!loading) {
+            window.dispatchEvent(new Event('sanityDataLoaded'));
+        }
+    }, [loading]);
 
     // Extract unique categories, filter out undefined just in case
     const categories = ['Todos', ...new Set(products.map(p => p.category).filter(Boolean))];
@@ -73,22 +81,30 @@ const ProductList = () => {
                     </div>
                 </div>
 
-                {loading ? (
-                    <div style={{ textAlign: 'center', padding: '3rem', fontSize: '1.2rem' }}>
-                        Cargando catálogo...
-                    </div>
-                ) : (
-                    <div className="product-grid">
-                        {filteredProducts.map(product => (
-                            <ProductCard key={product._id || product.id} product={product} />
-                        ))}
-                        {filteredProducts.length === 0 && (
-                            <p style={{ textAlign: 'center', gridColumn: '1 / -1', padding: '2rem' }}>
-                                Aún no hay productos cargados en esta categoría o no hay resultados para tu búsqueda.
-                            </p>
-                        )}
-                    </div>
-                )}
+                <div className="product-grid">
+                    {loading ? (
+                        <SkeletonLoader count={8} />
+                    ) : (
+                        <>
+                            {filteredProducts.map((product, index) => (
+                                <motion.div
+                                    key={product._id || product.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                                >
+                                    <ProductCard product={product} />
+                                </motion.div>
+                            ))}
+                            {filteredProducts.length === 0 && (
+                                <p style={{ textAlign: 'center', gridColumn: '1 / -1', padding: '2rem' }}>
+                                    Aún no hay productos cargados en esta categoría o no hay resultados para tu búsqueda.
+                                </p>
+                            )}
+                        </>
+                    )}
+                </div>
 
             </div>
         </section>
