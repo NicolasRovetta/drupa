@@ -5,10 +5,10 @@
 }
 
 .header {
-    background-color: #121212;
-    background-image: url('https://www.transparenttextures.com/patterns/crumpled-paper.png');
-    background-size: auto;
-    background-blend-mode: multiply;
+    background-image: url('/bgDrupa.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: transparent;
     color: #fdfbf7;
     position: fixed;
     width: 100%;

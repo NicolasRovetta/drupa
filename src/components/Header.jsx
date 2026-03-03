@@ -55,6 +55,11 @@ const Header = () => {
                                     Productos
                                 </Link>
                             </li>
+                            <li>
+                                <Link to="/habitos-saludables" className="nav-link">
+                                    Hábitos Saludables
+                                </Link>
+                            </li>
                         </ul>
                     </nav>
 

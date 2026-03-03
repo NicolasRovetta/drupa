@@ -23,9 +23,10 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #121212;
-    background-image: url('https://www.transparenttextures.com/patterns/crumpled-paper.png');
-    background-blend-mode: multiply;
+    background-image: url('/bgDrupa.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: transparent;
     animation: bgIntro 2.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     z-index: 1;
 }

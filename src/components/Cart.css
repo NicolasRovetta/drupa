@@ -487,12 +487,19 @@
 }
 
 @media (max-width: 992px) {
+
+    .cart-content,
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
     .checkout-step-container {
         flex-direction: column;
     }
 
     .checkout-main,
-    .cart-summary {
+    .cart-summary,
+    .cart-items-list {
         width: 100%;
     }
 

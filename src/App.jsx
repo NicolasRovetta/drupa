@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Preloader from './components/Preloader';
 import NotFound from './components/NotFound';
+import HealthyHabits from './components/HealthyHabits';
 import { Toaster } from 'react-hot-toast';
 import { CartProvider } from './context/CartContext';
 import { ThemeProvider } from './context/ThemeContext';
@@ -83,6 +84,7 @@ function App() {
                   <Route path="/products" element={<ProductList />} />
                   <Route path="/producto/:id" element={<ProductDetail />} />
                   <Route path="/cart" element={<Cart />} />
+                  <Route path="/habitos-saludables" element={<HealthyHabits />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>

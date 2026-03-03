@@ -1,13 +1,23 @@
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
+import { urlFor } from '../sanityClient';
 import './CartItem.css';
 
 const CartItem = ({ item }) => {
     const { updateQuantity, removeFromCart } = useContext(CartContext);
 
+    // Parse image and fallback for mock data if needed
+    const imageUrl = item.image ? urlFor(item.image).url() : item.imageUrl;
+
     return (
         <div className="cart-item">
-            <img src={item.imageUrl} alt={item.name} className="cart-item-image" />
+            {imageUrl ? (
+                <img src={imageUrl} alt={item.name} className="cart-item-image" />
+            ) : (
+                <div className="cart-item-image" style={{ backgroundColor: 'var(--color-border)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <span style={{ fontSize: '0.8rem', textAlign: 'center' }}>Sin imagen</span>
+                </div>
+            )}
 
             <div className="cart-item-details">
                 <h4 className="cart-item-name">{item.name}</h4>
